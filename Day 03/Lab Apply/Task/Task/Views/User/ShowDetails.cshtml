@@ -1,0 +1,11 @@
+﻿
+@{
+    ViewData["Title"] = "ShowDetails";
+	var usr = ViewBag.User;
+}
+
+<h1>ShowDetails</h1>
+
+<br/>your id is @usr.ID: 
+<br/>your name is @usr.Name:
+<br/><img width="500px" height="500px" src="/images/@usr.ImageChoice" alt="Alternate Text" />

@@ -1,0 +1,65 @@
+﻿@model IEnumerable<global::Task.Models.Car>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Num)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Manufacturer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Color)
+            </th>
+            <th>
+                @Html.Label(nameof(global::Task.Controllers.CarController.Details))
+            </th>
+            <th>
+                @Html.Label(nameof(global::Task.Controllers.CarController.Edit))
+            </th>
+            <th>
+                @Html.Label(nameof(global::Task.Controllers.CarController.Delete))
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Num)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Manufacturer)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Model)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Color)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = item.Num }, new { @class = "btn btn-info" })
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Num }, new { @class = "btn btn-warning" })
+                </td>
+                <td>
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Num }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<p class="text-end">
+    @Html.ActionLink("Create New", "Create", "Car", null, new { @class = "btn btn-primary" })
+</p>

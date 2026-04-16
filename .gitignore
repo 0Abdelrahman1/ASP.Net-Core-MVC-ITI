@@ -1,0 +1,61 @@
+########################
+# 1) Ignore everything
+########################
+*
+!.gitignore
+
+########################
+# 2) Allow Day folders
+########################
+!Day */
+
+########################
+# 3) Inside Day folders:
+#    allow only Lab Apply
+########################
+Day */**
+!Day */Lab Apply/
+!Day */Lab Apply/**
+
+# no .mp4
+*.mp4
+
+
+########################
+# Ignore build outputs
+########################
+**/bin/
+**/obj/
+
+########################
+# Ignore IDE files
+########################
+**/.vs/
+**/.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+########################
+# Ignore dependencies
+########################
+**/node_modules/
+**/wwwroot/lib/
+
+########################
+# Ignore logs & temp
+########################
+*.log
+*.cache
+*.tmp
+*.temp
+
+########################
+# Ignore OS junk
+########################
+*.DS_Store
+**/Thumbs.db
+
+# Ignore NuGet packages
+**/packages/

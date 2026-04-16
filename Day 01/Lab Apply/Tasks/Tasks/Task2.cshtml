@@ -1,0 +1,74 @@
+﻿@*@{
+    Layout = null;
+}*@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body style="height: 600px; display: flex;">
+    <div style="width: 40%; height: 100%; background-color: Yellow; border-style: solid;">
+        <form method="post">
+            <h3>Choose a background image:</h3>
+            <select name="img">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="12">11</option>
+            </select>
+            <br />
+            <h3>Choose a font color:</h3>
+            <select name="color">
+                <option value="Red">Red</option>
+                <option value="Green">Green</option>
+                <option value="Blue">Blue</option>
+            </select>
+            <br />
+
+            <h3>Choose a greeting Type:</h3> <br />
+            <input type="radio" name="greet" value="Happy Eid !!!" /> <b>Eid</b> <br />
+            <input type="radio" name="greet" value="Get Well Soon" /> <b>Get Well Soon</b> <br />
+            <input type="radio" name="greet" value="Happy Vacation !!!" /> <b>Vacation</b> <br />
+            <input type="radio" name="greet" value="Congratulations !!!" /> <b>Congrats</b> <br />
+
+            <br />
+            <input type="checkbox" name="withPic" /> <b>Add the Picture</b> <br />
+
+            <h3>Enter the greeting Message bellow:</h3>
+            <input type="text" name="msg" />
+
+            <br/>
+            <input type="submit" value="Preview" />
+        </form>
+    </div>
+    <div id="in" style="width: 40%; height: 100%; border-style: solid; margin-left: 5px; background-color: whitesmoke; position: relative">
+        @if(IsPost)
+
+        {
+            var path = "/backgrounds/" + Request["img"] + ".jpg";
+            var color = Request["color"];
+            var greet = Request["greet"];
+            var msg = Request["msg"];
+            <img src="@path" width="100%" height="100%"/>
+            <h1 style="color: @color; position: absolute; top: 20%; left:50%">@greet</h1>
+            if (Request["withPic"] == "on")
+            {
+                <img src="/images/well.gif" width="30%" height="30%" style="position: absolute; top: 40%; left:40%">
+            }
+            <h1 style="color: @color; position: absolute; bottom: 20%; left:50%">@msg</h1>
+        }
+    </div>
+
+</body>
+</html>

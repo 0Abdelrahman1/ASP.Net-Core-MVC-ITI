@@ -1,0 +1,81 @@
+﻿@model IEnumerable<Employee>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<table class="table table-bordered table-success">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EmpID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JoinDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Department)
+            </th>
+            <th>
+                @Html.Label(nameof(MVC_WebAppUsingEF_With3Areas.Areas.HR.Controllers.HomeController.Details))
+            </th>
+            <th>
+                @Html.Label(nameof(MVC_WebAppUsingEF_With3Areas.Areas.HR.Controllers.HomeController.Edit))
+            </th>
+            <th>
+                @Html.Label(nameof(MVC_WebAppUsingEF_With3Areas.Areas.HR.Controllers.HomeController.Delete))
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Password)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JoinDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNum)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Department.DeptID)
+                </td>
+                <td>
+                    <a asp-area="HR" asp-controller="Home" asp-action="Details" asp-route-id="@item.EmpID" class="btn btn-info">Details</a>
+                </td>
+                <td>
+                    <a asp-area="HR" asp-controller="Home" asp-action="Edit" asp-route-id="@item.EmpID" class="btn btn-warning">Edit</a>
+                </td>
+                <td>
+                    <a asp-area="HR" asp-controller="Home" asp-action="Delete" asp-route-id="@item.EmpID" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<p class="text-end">
+    <a asp-area="HR" asp-controller="Home" asp-action="Create" class="btn btn-primary">Create New</a>
+</p>

@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "GetAllCars";
+}
+
+<h1>GetAllCars</h1>
+
+<div class="table-responsive">
+    <table class="table table-hover table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>Id</th>
+                <th>Manufacturer</th>
+                <th>Model</th>
+                <th>Color</th>
+                <th> </th>
+                <th> </th>
+                <th> </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var car in ViewBag.Cars)
+            {
+                <tr>
+                    <td>@car.Num</td>
+                    <td>@car.Manufacturer</td>
+                    <td>@car.Model</td>
+                    <td>@car.Color</td>
+                    <td><a href="/Car/SelectCarById?Id=@car.Num" class="btn btn-info">View</a></td>
+                    <td><a href="/Car/EditCar?Id=@car.Num" class="btn btn-warning">Edit</a></td>
+                    <td><a href="/Car/DeleteCar?Id=@car.Num" class="btn btn-danger">Delete</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div class="d-flex justify-content-center">
+    <a href="/Car/CreateNewCar" class="btn btn-success">Add<a />
+</div>
+

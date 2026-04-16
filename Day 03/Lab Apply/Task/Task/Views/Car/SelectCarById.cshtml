@@ -1,0 +1,14 @@
+﻿@{
+	ViewBag.Title = "SelectCarById";
+	Car car = ViewBag.Car;
+}
+<h2>SelectCarById</h2>
+
+<div style="border: 1px solid #ccc; padding: 15px; border-radius: 5px;">
+    <h3><strong>Id:</strong> @car.Num</h3>
+    <h3><strong>Manufacturer:</strong> @car.Manufacturer</h3>
+    <h3><strong>Model:</strong> @car.Model</h3>
+    <h3><strong>Color:</strong> @car.Color</h3>
+</div>
+
+<a href="GetAllCars" class="btn btn-dark">Back</a>

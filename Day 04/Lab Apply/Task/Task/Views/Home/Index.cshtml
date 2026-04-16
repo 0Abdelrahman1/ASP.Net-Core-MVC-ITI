@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@{
+    List<string> firstNames = new() { "Abdelrahman", "Abdullah", "Mohamed" };
+    List<string> lastNames = new() { "Ali", "Hassan", "Khaled" };
+
+	List<string> carNames = new() { "BMW", "Mercedes", "Audi" };
+	List<string> carColors = new() { "Red", "Black", "White" };
+}
+
+@functions
+{
+    public void fillTable(string firstColHeader, List<string> firstColData, string secondColHeader, List<string> secondColData)
+    {
+        <table class="table border-black">
+            <thead>
+                <tr>
+                    <th>@firstColHeader</th>
+                    <th>@secondColHeader</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Math.Min(firstColData.Count, secondColData.Count); i++)
+                {
+                    <tr>
+                        <td>@firstColData[i]</td>
+                        <td>@secondColData[i]</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+}
+
+<div>
+    First Calling:
+	@{
+        fillTable("First Name", firstNames, "Last Name", lastNames);
+    }
+    <br/>
+    Second Calling:
+    @{
+        fillTable("Car Name", carNames, "Car Color", carColors);
+    }
+</div>

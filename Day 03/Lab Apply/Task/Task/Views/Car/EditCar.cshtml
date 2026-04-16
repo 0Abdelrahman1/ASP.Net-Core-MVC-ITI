@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewData["Title"] = "EditCar";
+	var car = ViewBag.Car;
+}
+
+<h1>EditCar</h1>
+
+<form method="post" action="UpdateCar">
+	<input type="hidden" name="Num" value="@car.Num" />
+	<div class="form-group">
+        <label for="Manufacturer">Manufacturer</label>
+        <input type="text" class="form-control" id="Manufacturer" name="Manufacturer" value="@car.Manufacturer" required>
+    </div>
+    <div class="form-group">
+        <label for="Model">Model</label>
+        <input type="text" class="form-control" id="Model" name="Model" value="@car.Model" required>
+    </div>
+    <div class="form-group">
+        <label for="Color">Color</label>
+        <input type="text" class="form-control" id="Color" name="Color" value="@car.Color" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>

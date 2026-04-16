@@ -1,0 +1,45 @@
+﻿@*@{
+    Layout = null;
+}*@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <form method="post">
+        Name: <input type="text" name="name" /> <br />
+        Birthdate: <input type="date" name="birthdate" /> <br />
+        <input type="submit" value="Go" />
+        <input type="checkbox" name="isGraduated" /> Is Graduated
+    </form>
+
+    @{
+        if (IsPost)
+        {
+            <div>
+                <h1>Hello @Request["name"]</h1>
+            </div>
+            <div>
+            <h1>your Birthdate @Request["birthdate"].ToString()</h1>
+            </div>
+            <div>
+
+            @if (Request["isGraduated"] == "on")
+            {
+                <h1>YESSSSSSSS, Graduated</h1>
+            }
+            else
+            {
+                <h1>NOOOOOOOOO, Not Graduated</h1>
+            }
+            </div>
+        }
+
+    }
+
+</body>
+</html>
