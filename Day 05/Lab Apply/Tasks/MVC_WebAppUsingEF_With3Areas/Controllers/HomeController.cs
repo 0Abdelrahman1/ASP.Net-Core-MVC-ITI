@@ -6,11 +6,6 @@ namespace MVC_WebAppUsingEF_With3Areas.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
-
         public IActionResult Privacy()
         {
             return View();

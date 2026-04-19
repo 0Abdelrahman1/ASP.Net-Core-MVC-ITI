@@ -1,0 +1,55 @@
+﻿@model Employee
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Employee</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            <label asp-for="Name"></label>
+        </dt>
+        <dd class = "col-sm-10">
+			<input asp-for="Name" class="form-control" readonly />
+        </dd>
+        <dt class = "col-sm-2">
+			<label asp-for="Password"></label>
+        </dt>
+        <dd class = "col-sm-10">
+            <input asp-for="Password" class="form-control" readonly />
+        </dd>
+        <dt class = "col-sm-2">
+            <label asp-for="JoinDate"></label>
+        </dt>
+        <dd class = "col-sm-10">
+            <input asp-for="JoinDate" class="form-control" readonly />
+        </dd>
+        <dt class = "col-sm-2">
+            <label asp-for="Email"></label>
+        </dt>
+        <dd class = "col-sm-10">
+            <input asp-for="Email" class="form-control" readonly />
+        </dd>
+        <dt class = "col-sm-2">
+            <label asp-for="PhoneNum"></label>
+        </dt>
+        <dd class = "col-sm-10">
+            <input asp-for="PhoneNum" class="form-control" readonly />
+        </dd>
+        <dt class = "col-sm-2">
+            <label asp-for="Department"></label>
+        </dt>
+        <dd class = "col-sm-10">
+            <input asp-for="Department.Name" class="form-control" readonly />
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a> -
+    <a asp-action="Edit" asp-route-id="@Model?.EmpID" class="btn btn-primary">Edit</a> -
+	<a asp-action="Delete" asp-route-id="@Model?.EmpID" class="btn btn-danger">Delete</a>
+</div>

@@ -36,7 +36,7 @@ namespace MVC_WebAppUsingEF_With3Areas
                 pattern: "HR/{controller=Home}/{action=Index}/{id?}");
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "{controller=Home}/{action=Privacy}/{id?}");
 
             app.Run();
         }

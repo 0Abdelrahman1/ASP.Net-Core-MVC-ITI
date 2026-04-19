@@ -6,12 +6,14 @@
 
 <h1>Index</h1>
 
+<form asp-area="HR" asp-controller="Home" asp-action="Index" method="post">
+    @Html.DropDownList("selectedDepartmentId", ViewBag.Depts as SelectList, "All Departments", new { @class = "form-select" })
+    <input type="submit" value="Search" class="btn btn-primary" />
+</form>
+
 <table class="table table-bordered table-success">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.EmpID)
-            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
@@ -61,7 +63,7 @@
                     @Html.DisplayFor(modelItem => item.PhoneNum)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Department.DeptID)
+                    @Html.DisplayFor(modelItem => item.Department.Name)
                 </td>
                 <td>
                     <a asp-area="HR" asp-controller="Home" asp-action="Details" asp-route-id="@item.EmpID" class="btn btn-info">Details</a>

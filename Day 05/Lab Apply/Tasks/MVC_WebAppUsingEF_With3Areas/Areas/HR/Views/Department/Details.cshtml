@@ -1,0 +1,40 @@
+@model Department
+
+@{
+    ViewData["Title"] = "Department Details";
+}
+
+<h1>Department Details</h1>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Name</h5>
+        <p><strong>Department ID:</strong> @Model.DeptID</p>
+        <p><strong>Description:</strong> @Model.Description</p>
+        
+        <h6>Employees in this Department:</h6>
+        @if (Model.Employees != null && Model.Employees.Count > 0)
+        {
+            <ul class="list-group">
+                @foreach (var emp in Model.Employees)
+                {
+                    <li class="list-group-item">
+                        <a asp-area="HR" asp-controller="Home" asp-action="Details" asp-route-id="@emp.EmpID">
+                            @emp.Name
+                        </a>
+                    </li>
+                }
+            </ul>
+        }
+        else
+        {
+            <p class="text-muted">No employees in this department.</p>
+        }
+    </div>
+</div>
+
+<div class="mt-3">
+    <a asp-area="HR" asp-controller="Department" asp-action="Edit" asp-route-id="@Model.DeptID" class="btn btn-warning">Edit</a>
+    <a asp-area="HR" asp-controller="Department" asp-action="Delete" asp-route-id="@Model.DeptID" class="btn btn-danger">Delete</a>
+    <a asp-area="HR" asp-controller="Department" asp-action="Index" class="btn btn-secondary">Back</a>
+</div>

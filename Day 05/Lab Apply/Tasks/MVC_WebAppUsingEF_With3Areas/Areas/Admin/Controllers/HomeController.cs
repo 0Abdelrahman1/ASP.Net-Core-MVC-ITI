@@ -4,6 +4,7 @@ using System.Diagnostics;
 
 namespace MVC_WebAppUsingEF_With3Areas.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class HomeController : Controller
     {
         public IActionResult Index()
