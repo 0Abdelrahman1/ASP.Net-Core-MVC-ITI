@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Order>
+
+@{
+    // ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<form class="mb-5" method="post">
+    <div class="input-group">
+        @Html.DropDownList("selectedCustomerId", (SelectList)ViewBag.Customers, "All Customers", new { @class = "form-select" })
+        <button class="btn btn-primary" type="submit">Filter</button>
+	</div>
+</form>
+<table class="table table-bordered table-info table-striped-columns text-center">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer)
+            </th>
+            <th>
+                @Html.Label("Actions")
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+				@Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.Name)
+            </td>
+            <td class="d-flex justify-content-evenly">
+                <a class="btn btn-primary m-1" asp-action="Details" asp-route-id="@item.ID">Details</a>
+                <a class="btn btn-warning m-1" asp-action="Edit" asp-route-id="@item.ID">Edit</a>
+                <a class="btn btn-danger m-1" asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+<p class="text-end m-1">
+    <a class="btn btn-success" asp-action="Create">Create New</a>
+</p>
