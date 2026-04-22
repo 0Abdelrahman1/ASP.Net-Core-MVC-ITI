@@ -1,0 +1,38 @@
+﻿@inject IConfiguration Configuration
+@{
+    ViewData["Title"] = "Home Page";
+    IWebHostEnvironment env = ViewBag.Env;
+}
+
+<div class="text-center bg-secondarym-3">
+    <h1>Environment Data</h1>
+    <dl class="row">
+        <dt class="col-4">Environment Name:</dt>
+        <dd class="col-8">@env.EnvironmentName</dd>
+    
+        <dt class="col-4">Application Name:</dt>
+        <dd class="col-8">@env.ApplicationName</dd>
+    
+        <dt class="col-4">Content Root Path:</dt>
+        <dd class="col-8">@env.ContentRootPath</dd>
+    
+        <dt class="col-4">Content Root File Provider:</dt>
+        <dd class="col-8">@env.ContentRootFileProvider</dd>
+    
+        <dt class="col-4">Web Root Path:</dt>
+        <dd class="col-8">@env.WebRootPath</dd>
+    
+        <dt class="col-4">Web Root File Provider:</dt>
+        <dd class="col-8">@env.WebRootFileProvider</dd>
+    </dl>
+</div>
+<hr />
+<hr />
+<hr />
+<div class="text-center bg-secondary m-3">
+	<h1>Configuration Data</h1>
+    <h2>
+        Configuration Key: @Configuration["MyKey"]
+    </h2>
+</div>
+
