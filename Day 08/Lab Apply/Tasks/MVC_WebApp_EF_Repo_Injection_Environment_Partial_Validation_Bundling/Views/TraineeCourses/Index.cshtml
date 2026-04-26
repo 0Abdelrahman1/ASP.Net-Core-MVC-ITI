@@ -1,0 +1,48 @@
+﻿@model IEnumerable<MVC_WebApp_EF_Repo_Injection_Environment_Partial_Validation_Bundling.Models.TraineeCourse>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+
+<table class="table table-info table-bordered table-striped-columns text-center">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Trainee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Course)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Grade)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Trainee.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Course.Topic)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Grade)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { CourseID = item.CourseID, TraineeID = item.TraineeID }, new { @class = "details" })
+                @Html.ActionLink("Edit", "Edit", new { CourseID=item.CourseID, TraineeID=item.TraineeID }, new { @class="edit" })
+                @Html.ActionLink("Delete", "Delete", new { CourseID=item.CourseID, TraineeID=item.TraineeID }, new { @class="delete" })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<p class="create">
+    <a asp-action="Create">Create New</a>
+</p>

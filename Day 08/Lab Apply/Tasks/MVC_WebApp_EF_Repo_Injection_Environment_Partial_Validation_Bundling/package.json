@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "build:js": "esbuild wwwroot/js/stylingButtons1.js wwwroot/js/stylingButtons2.js --bundle --minify --outfile=wwwroot/js/min/allJS.min.js",
+    "watch:js": "esbuild wwwroot/js/stylingButtons1.js wwwroot/js/stylingButtons2.js --bundle --minify --outfile=wwwroot/js/min/allJS.min.js --watch"
+  }
+}

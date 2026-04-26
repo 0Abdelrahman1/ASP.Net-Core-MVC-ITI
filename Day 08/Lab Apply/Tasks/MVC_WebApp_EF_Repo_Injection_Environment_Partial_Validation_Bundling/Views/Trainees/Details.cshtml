@@ -1,0 +1,81 @@
+﻿@model Trainee
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Trainee</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MobileNo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MobileNo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Birthdate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Birthdate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Track)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Track.Name)
+        </dd>
+    </dl>
+</div>
+
+@if (Model.TraineeCourses?.Any() == true)
+{
+    <h3>Courses Enrolled</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Course Topic</th>
+                <th>Grade</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var traineeCourse in Model.TraineeCourses)
+            {
+                <tr>
+                    <td>@traineeCourse.Course?.Topic</td>
+                    <td>@(traineeCourse.Grade) / @(traineeCourse.Course?.Grade)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p class="text-warning">No courses assigned yet.</p>
+}
+<div>
+    <a class="edit" asp-action="Edit" asp-route-id="@Model?.ID">Edit</a>
+	<a class="delete" asp-action="Delete" asp-route-id="@Model?.ID">Delete</a>
+    <a class="back" asp-action="Index">Back to List</a>
+</div>
